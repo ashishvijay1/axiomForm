@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiom Institute - Contact Form</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("axiom");  // Replace with your EmailJS User ID
+        })();
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #contactForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #contactForm input, #contactForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #contactForm button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #contactForm button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            #contactForm {
+                padding: 15px;
+            }
+
+            #contactForm input, #contactForm textarea {
+                padding: 8px;
+                margin: 8px 0;
+            }
+
+            #contactForm button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contact Us - Axiom Institute</h1>
+    
+    <!-- Contact Form -->
+    <form id="contactForm">
+        <input type="text" name="user_name" placeholder="Your Name" required>
+        <input type="email" name="user_email" placeholder="Your Email" required>
+        <input type="tel" name="user_phone" placeholder="Your Phone Number" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Script for form submission -->
+    <script type="text/javascript">
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Send the form data via EmailJS
+            emailjs.sendForm('service_jdl07gd', 'templet_n764bkr', this)
+                .then(function() {
+                    alert('Message sent successfully! We will contact you shortly.');
+                }, function(error) {
+                    alert('Failed to send the message. Please try again later.');
+                    console.log('FAILED...', error);
+                });
+        });
+    </script>
+
+</body>
+</html>
