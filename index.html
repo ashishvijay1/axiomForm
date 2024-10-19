@@ -103,7 +103,7 @@
             event.preventDefault(); // Prevent default form submission
 
             // Send the form data via EmailJS
-            emailjs.sendForm('service_jdl07gd', 'templet_n764bkr', this)
+            emailjs.sendForm('service_jdl07gd', 'templet_n764bkr')
                 .then(function() {
                     alert('Message sent successfully! We will contact you shortly.');
                 }, function(error) {
